@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="image\background.jpg" />
+    <None Remove="image\blue-moon.png" />
+    <None Remove="image\lock-icon.png" />
+    <None Remove="image\user-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="modelview\" />
+    <Folder Include="model\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="image\background.jpg" />
+    <Resource Include="image\blue-moon.png" />
+    <Resource Include="image\lock-icon.png" />
+    <Resource Include="image\user-icon.png" />
+  </ItemGroup>
+
+</Project>

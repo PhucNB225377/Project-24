@@ -1,0 +1,181 @@
+﻿<Window x:Class="WpfApp1.view.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.view"
+        mc:Ignorable="d"
+        Title="LoginView" Height="550" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown"
+        Background="Transparent"
+        AllowsTransparency="true">
+    <Border CornerRadius="50">
+        <Border.Background>
+            <ImageBrush ImageSource="/image/background.jpg" 
+                  Stretch = "None" AlignmentX="Center"/>
+        </Border.Background>
+
+
+        <Border CornerRadius="50"
+            BorderThickness="5"
+                Opacity="0.7">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1, 1">
+                    <GradientStop Color="Blue" Offset="0" />
+                    <GradientStop Color="Violet" Offset="0.75" />
+                    <GradientStop Color="Purple" Offset="1" />
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1, 0">
+                    <GradientStop Color="GreenYellow" Offset="0" />
+                    <GradientStop Color="White" Offset="0.75" />
+                    <GradientStop Color="Green" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="25"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="LOG IN"
+                               Foreground="DarkGray"
+                               FontSize="20"
+                               VerticalAlignment="Center"
+                               Grid.Column="0"
+                               Margin="10,0,0,0"/>
+                    <Button x:Name="btnMinimize"
+                            BorderThickness="0"
+                            Content="-"
+                            Foreground="White"
+                            FontSize="16"
+                            Cursor="Hand"
+                            Grid.Column="1"
+                            Click="btnMinimize_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="Aqua"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Background" Value="Magenta"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18" CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                        
+                    </Button>
+                    <Button x:Name="btnClose"
+                         BorderThickness="0"
+                           Content="X"
+                            Foreground="White"
+                            FontSize="13"
+                            Cursor="Hand"
+                           Grid.Column="2"
+                           Click="btnClose_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="Magenta"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Background" Value="Aqua"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18" CornerRadius="9"
+                                       Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+                </Grid>
+                <StackPanel Width="250" Grid.Row="2"
+                            Orientation="Vertical"
+                            Margin="0,35,0,0">
+                    <Image Source="/image/blue-moon.png"/>
+                    <TextBlock Text="BLUE MOON" Foreground="DarkBlue" FontSize="25" HorizontalAlignment="Center"/>
+                    <TextBlock Text="User Name" Foreground="DarkBlue" FontSize="12" HorizontalAlignment="Left"
+                               Margin="0,30,0,0"/>
+                    <TextBox x:Name="username" FontSize="13" Foreground="Black" CaretBrush="DarkBlue"
+                             BorderBrush="DarkGray" BorderThickness="0,0,0,1" Height="28" VerticalAlignment="Center"
+                             Margin="0,5,0,0" Padding="30, 0, 0, 0">
+                        <TextBox.Background>
+                            <ImageBrush ImageSource="/image/user-icon.png"
+                                        Stretch="Uniform"
+                                        AlignmentX="Left"/>
+                        </TextBox.Background>
+                    </TextBox>
+
+                    
+                    <TextBlock Text="Password" Foreground="DarkBlue" FontSize="12" HorizontalAlignment="Left"
+                        Margin="0,15,0,0"/>
+                    <PasswordBox x:Name="password" FontSize="13" Foreground="Black" CaretBrush="DarkBlue"
+                        BorderBrush="DarkGray" BorderThickness="0,0,0,1" Height="28" VerticalAlignment="Center"
+                        Margin="0,5,0,0" Padding="30, 0, 0, 0">
+                        <PasswordBox.Background>
+                            <ImageBrush ImageSource="/image/lock-icon.png"
+                                Stretch="Uniform"
+                                AlignmentX="Left"/>
+                        </PasswordBox.Background>
+                    </PasswordBox>
+                    
+                    
+                    <Button x:Name="btnLogin"
+                                BorderThickness="0"
+                                 Content="LOG IN"
+                                Foreground="White"
+                                 FontSize="13"
+                                 Cursor="Hand"
+                             Grid.Column="2"
+                            Margin="0,10,0,0"
+                                 Click="btnLogin_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="Green"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Background" Value="LightGreen"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="150" Height="30" CornerRadius="15"
+                    Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Border>
+</Window>
